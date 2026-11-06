@@ -1,0 +1,13 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/i1_1718_tc",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/i1_1718_tc.html",
+      "destination": "/index.html"
+    }
+  ]
+}
