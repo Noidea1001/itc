@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang="km" translate="no" class="light notranslate">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="google" content="notranslate">
+    <meta name="theme-color" content="#2563eb">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="I1.1718-TC">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="កាលវិភាគ I1.1718-TC">
+    <link id="appleTouchIcon" rel="apple-touch-icon" href="">
+    <link id="pwaManifestLink" rel="manifest" href="">
+    <title>កាលវិភាគសិក្សា I1.1718-TC | ឆមាសទី ១ (២០២៦-២០២៧)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&family=Inter:wght@400;500;600;700;800&family=Kantumruy+Pro:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Kantumruy Pro"', '"Inter"', '"Battambang"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Kantumruy Pro', 'Inter', 'Battambang', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-touch-callout: none;
+        }
+
+        input, select {
+            -webkit-user-select: text;
+            user-select: text;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .card-enter {
+            animation: fadeIn 0.18s ease-out forwards;
+        }
+
+        /* Official A4 Landscape Print Styles */
+        @media print {
+            @page {
+                size: A4 landscape;
+                margin: 6mm;
+            }
+            html, body {
+                background: #ffffff !important;
+                color: #000000 !important;
+                font-size: 11px !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            #printableArea {
+                display: block !important;
+                width: 100% !important;
+            }
+            .print-table {
+                width: 100% !important;
+                border-collapse: collapse !important;
+            }
+            .print-table th,
+            .print-table td {
+                border: 1px solid #1e293b !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-screen pb-20 sm:pb-10 transition-colors duration-200">
+
+    <!-- Toast Notification -->
+    <div id="toastContainer" class="no-print fixed bottom-20 sm:bottom-6 right-4 z-50 pointer-events-none transition-all duration-300 opacity-0 translate-y-2">
+        <div class="pointer-events-auto flex items-center gap-2 px-3.5 py-2.5 rounded-xl shadow-lg border bg-slate-900 text-white dark:bg-white dark:text-slate-900 border-slate-700 dark:border-slate-200 text-xs font-bold">
+            <span id="toastDot" class="w-2 h-2 rounded-full bg-blue-400 shrink-0"></span>
+            <span id="toastText"></span>
+        </div>
+    </div>
+
+    <!-- Clean Minimalist Sticky Header -->
+    <header class="no-print sticky top-0 z-30 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800">
+        <div class="max-w-5xl mx-auto px-3 sm:px-5 py-2.5">
+            <div class="flex items-center justify-between gap-2">
+                <!-- Title & Subtitle -->
+                <div class="flex items-center gap-2.5 min-w-0">
+                    <div class="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center text-white shadow-sm shrink-0">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
+                            <line x1="16" x2="16" y1="2" y2="6"></line>
+                            <line x1="8" x2="8" y1="2" y2="6"></line>
+                            <line x1="3" x2="21" y1="10" y2="10"></line>
+                        </svg>
+                    </div>
+                    <div class="truncate">
+                        <div class="flex items-center gap-1.5">
+                            <h1 class="text-sm sm:text-base font-extrabold text-slate-900 dark:text-white truncate">
+                                កាលវិភាគ I1.1718-TC
+                            </h1>
+                            <span class="px-1.5 py-0.5 text-[10px] font-bold rounded-md bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 border border-blue-200/70 dark:border-blue-800 shrink-0">
+                                ឆមាសទី ១
+                            </span>
+                        </div>
+                        <p class="text-[11px] text-slate-500 dark:text-slate-400 truncate">
+                            ឆ្នាំសិក្សា ២០២៦-២០២៧ (សប្តាហ៍ទី ១ ដល់ ១៦)
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Pure Khmer Action Buttons -->
+                <div class="flex items-center gap-1.5 shrink-0">
+                    <!-- Install App Button -->
+                    <button onclick="triggerInstallApp()" class="px-2.5 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold transition flex items-center gap-1.5" title="ដំឡើងកម្មវិធី">
+                        <svg class="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" x2="12" y1="15" y2="3"></line>
+                        </svg>
+                        <span class="hidden sm:inline">ដំឡើងកម្មវិធី</span>
+                    </button>
+
+                    <!-- Print Button (Pure Khmer Only) -->
+                    <button onclick="openPrintModal()" class="px-3 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-700 active:scale-[0.99] text-white text-xs font-bold shadow-sm transition flex items-center gap-1.5" title="បោះពុម្ពតារាង">
+                        <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                            <rect width="12" height="8" x="6" y="14"></rect>
+                        </svg>
+                        <span>បោះពុម្ពតារាង</span>
+                    </button>
+
+                    <!-- Dark/Light Theme Button -->
+                    <button onclick="toggleDarkMode()" class="p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition" title="ប្តូរពណ៌ផ្ទៃ">
+                        <svg class="w-4 h-4 hidden dark:block text-amber-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="4"></circle>
+                            <path d="M12 2v2"></path>
+                            <path d="M12 20v2"></path>
+                            <path d="m4.93 4.93 1.41 1.41"></path>
+                            <path d="m17.66 17.66 1.41 1.41"></path>
+                            <path d="M2 12h2"></path>
+                            <path d="M20 12h2"></path>
+                            <path d="m6.34 17.66-1.41 1.41"></path>
+                            <path d="m19.07 4.93-1.41 1.41"></path>
+                        </svg>
+                        <svg class="w-4 h-4 block dark:hidden text-slate-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="no-print max-w-5xl mx-auto px-3 sm:px-5 pt-3 space-y-3">
+
+        <!-- Compact Mobile-First Filter Bar -->
+        <section class="bg-white dark:bg-slate-900 rounded-2xl p-2.5 sm:p-3 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-2.5">
+            <!-- Week Toggle (Pure Khmer) & Search -->
+            <div class="flex flex-col sm:flex-row gap-2">
+                <!-- Odd / Even Week Segmented Control -->
+                <div class="grid grid-cols-3 bg-slate-100 dark:bg-slate-800 p-1 rounded-xl border border-slate-200/60 dark:border-slate-700/60 shrink-0">
+                    <button onclick="setWeekFilter('all')" id="week-all" class="px-3 py-1.5 rounded-lg text-xs font-bold transition bg-white dark:bg-slate-700 text-blue-600 dark:text-blue-300 shadow-sm text-center">
+                        គ្រប់សប្តាហ៍
+                    </button>
+                    <button onclick="setWeekFilter('odd')" id="week-odd" class="px-3 py-1.5 rounded-lg text-xs font-bold transition text-slate-600 dark:text-slate-400 flex items-center justify-center gap-1.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                        <span>សប្តាហ៍សេស</span>
+                    </button>
+                    <button onclick="setWeekFilter('even')" id="week-even" class="px-3 py-1.5 rounded-lg text-xs font-bold transition text-slate-600 dark:text-slate-400 flex items-center justify-center gap-1.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                        <span>សប្តាហ៍គូ</span>
+                    </button>
+                </div>
+
+                <!-- Search Box -->
+                <div class="relative flex-1">
+                    <svg class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.3-4.3"></path>
+                    </svg>
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        oninput="handleSearch(this.value)"
+                        placeholder="ស្វែងរកមុខវិជ្ជា, សាស្ត្រាចារ្យ, ឬបន្ទប់..." 
+                        class="w-full pl-9 pr-8 py-1.5 bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                    >
+                    <button id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M18 6 6 18"></path>
+                            <path d="m6 6 12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Subtle Status Line for Odd/Even Week -->
+            <div id="weekFilterStatusBox" class="hidden rounded-xl px-3 py-2 text-xs border items-center justify-between gap-2"></div>
+        </section>
+
+        <!-- Day Selector Pills (Clean Horizontal Scroll on Mobile) -->
+        <nav class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5" id="dayTabsContainer"></nav>
+
+        <!-- Compact Day Header Bar -->
+        <div id="daySummaryBanner" class="flex items-center justify-between gap-2 bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-2xl px-3.5 py-2.5 shadow-sm">
+            <div class="flex items-center gap-2.5">
+                <span class="w-2.5 h-6 rounded-full bg-blue-600"></span>
+                <div>
+                    <h2 id="currentDayTitle" class="text-sm sm:text-base font-extrabold text-slate-900 dark:text-white">ថ្ងៃចន្ទ</h2>
+                    <p id="currentDayStats" class="text-[11px] text-slate-500 dark:text-slate-400">៣ មុខវិជ្ជា</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-1.5">
+                <button onclick="toggleMergeSlots()" id="mergeToggleBtn" class="px-2.5 py-1 rounded-lg text-[11px] font-bold border border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 transition">
+                    ប្លុក ២ ម៉ោង
+                </button>
+                <button onclick="toggleFreeSlots()" id="freeSlotToggleBtn" class="px-2.5 py-1 rounded-lg text-[11px] font-bold border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-400 transition">
+                    ម៉ោងទំនេរ
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Timetable Cards / Grid Container -->
+        <div id="scheduleContainer" class="space-y-2.5"></div>
+
+        <!-- Clean Subject Summary List -->
+        <section class="bg-white dark:bg-slate-900 rounded-2xl p-3.5 border border-slate-200/80 dark:border-slate-800 shadow-sm">
+            <div class="flex items-center justify-between mb-2.5">
+                <h3 class="text-xs sm:text-sm font-extrabold text-slate-900 dark:text-white flex items-center gap-1.5">
+                    <svg class="w-4 h-4 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>
+                    </svg>
+                    <span>មុខវិជ្ជាសិក្សាទាំង ៧ ក្នុងឆមាសទី ១</span>
+                </h3>
+                <span class="text-[11px] text-slate-400">ចុចដើម្បីច្រោះមើល</span>
+            </div>
+            <div id="legendContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2"></div>
+        </section>
+    </main>
+
+    <!-- Clean Mobile Bottom Bar (Pure Khmer) -->
+    <div class="no-print sm:hidden fixed bottom-0 left-0 right-0 z-30 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 px-2 py-1.5 grid grid-cols-4 gap-1 shadow-lg">
+        <button onclick="jumpToToday()" class="flex flex-col items-center justify-center py-1 rounded-xl text-[11px] font-bold text-slate-600 dark:text-slate-300 active:bg-slate-100 dark:active:bg-slate-800">
+            <svg class="w-4 h-4 mb-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
+                <line x1="16" x2="16" y1="2" y2="6"></line>
+                <line x1="8" x2="8" y1="2" y2="6"></line>
+                <line x1="3" x2="21" y1="10" y2="10"></line>
+            </svg>
+            <span>ថ្ងៃនេះ</span>
+        </button>
+        <button onclick="setDay('all')" class="flex flex-col items-center justify-center py-1 rounded-xl text-[11px] font-bold text-slate-600 dark:text-slate-300 active:bg-slate-100 dark:active:bg-slate-800">
+            <svg class="w-4 h-4 mb-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <line x1="8" x2="21" y1="6" y2="6"></line>
+                <line x1="8" x2="21" y1="12" y2="12"></line>
+                <line x1="8" x2="21" y1="18" y2="18"></line>
+                <line x1="3" x2="3.01" y1="6" y2="6"></line>
+                <line x1="3" x2="3.01" y1="12" y2="12"></line>
+                <line x1="3" x2="3.01" y1="18" y2="18"></line>
+            </svg>
+            <span>គ្រប់ថ្ងៃ</span>
+        </button>
+        <button onclick="setDay('grid')" class="flex flex-col items-center justify-center py-1 rounded-xl text-[11px] font-bold text-slate-600 dark:text-slate-300 active:bg-slate-100 dark:active:bg-slate-800">
+            <svg class="w-4 h-4 mb-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+                <path d="M3 9h18"></path>
+                <path d="M3 15h18"></path>
+                <path d="M9 3v18"></path>
+                <path d="M15 3v18"></path>
+            </svg>
+            <span>តារាងពេញ</span>
+        </button>
+        <button onclick="openPrintModal()" class="flex flex-col items-center justify-center py-1 rounded-xl text-[11px] font-bold text-blue-600 dark:text-blue-400 active:bg-blue-50 dark:active:bg-blue-950/50">
+            <svg class="w-4 h-4 mb-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                <rect width="12" height="8" x="6" y="14"></rect>
+            </svg>
+            <span>បោះពុម្ពតារាង</span>
+        </button>
+    </div>
+
+    <!-- Print & Image Export Modal (Works 100% on Mobile, Desktop & Sandboxed Previews) -->
+    <div id="printPreviewModal" class="no-print fixed inset-0 z-50 hidden items-center justify-center p-2 sm:p-4 bg-slate-900/70 backdrop-blur-sm">
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-5xl w-full max-h-[94vh] flex flex-col shadow-2xl overflow-hidden">
+            <!-- Modal Top Bar -->
+            <div class="p-3.5 sm:px-5 border-b border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-2 bg-slate-50 dark:bg-slate-800/60">
+                <div>
+                    <h3 class="text-sm sm:text-base font-extrabold text-slate-900 dark:text-white">បោះពុម្ព និងរក្សាទុកតារាងកាលវិភាគ</h3>
+                    <p class="text-[11px] text-slate-500 dark:text-slate-400">ជ្រើសរើសបោះពុម្ពផ្ទាល់ ឬទាញយកជារូបភាពតារាងច្បាស់ខ្ពស់សម្រាប់ទូរស័ព្ទ</p>
+                </div>
+                <div class="flex flex-wrap items-center gap-2">
+                    <!-- Option 1: Direct Print / New Tab Print -->
+                    <button onclick="executeDirectPrint()" class="px-3.5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold shadow-sm transition flex items-center gap-1.5">
+                        <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                            <rect width="12" height="8" x="6" y="14"></rect>
+                        </svg>
+                        <span>បោះពុម្ពឥឡូវនេះ</span>
+                    </button>
+
+                    <!-- Option 2: Download High-Res Image of Timetable (100% reliable on phones) -->
+                    <button onclick="downloadTimetableAsPNG()" class="px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-sm transition flex items-center gap-1.5">
+                        <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" x2="12" y1="15" y2="3"></line>
+                        </svg>
+                        <span>ទាញយកតារាងជារូបភាព</span>
+                    </button>
+
+                    <button onclick="closePrintModal()" class="p-2 rounded-xl bg-slate-200/80 dark:bg-slate-700 text-slate-700 dark:text-slate-200 hover:opacity-80">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M18 6 6 18"></path>
+                            <path d="m6 6 12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Live A4 Preview Area -->
+            <div class="p-3 sm:p-5 overflow-auto bg-slate-100 dark:bg-slate-950 flex-1">
+                <div id="modalPrintPreviewContent" class="bg-white text-black p-4 sm:p-6 rounded-xl shadow-md mx-auto min-w-[800px] max-w-[1050px]"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Install App (PWA) Modal -->
+    <div id="installGuideModal" class="no-print fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-md w-full p-5 shadow-2xl space-y-4">
+            <div class="flex items-start justify-between gap-3">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white shrink-0">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" x2="12" y1="15" y2="3"></line>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-extrabold text-slate-900 dark:text-white">ដំឡើងកម្មវិធីកាលវិភាគ</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">សម្រាប់បើកមើលរហ័សនៅលើទូរស័ព្ទ និងកុំព្យូទ័រ</p>
+                    </div>
+                </div>
+                <button onclick="closeInstallModal()" class="p-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-500">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M18 6 6 18"></path>
+                        <path d="m6 6 12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div id="directInstallBanner" class="hidden p-3 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800 flex items-center justify-between gap-2">
+                <span class="text-xs font-bold text-emerald-900 dark:text-emerald-200">អាចដំឡើងដោយផ្ទាល់បានភ្លាម!</span>
+                <button onclick="promptNativeInstall()" class="px-3.5 py-1.5 rounded-xl bg-emerald-600 text-white text-xs font-bold">
+                    ដំឡើងឥឡូវនេះ
+                </button>
+            </div>
+
+            <div class="space-y-2.5 text-xs text-slate-600 dark:text-slate-300">
+                <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/70 dark:border-slate-800 space-y-1">
+                    <div class="font-bold text-slate-900 dark:text-white">១. ទូរស័ព្ទ iPhone / iPad (Safari)</div>
+                    <p>ចុចប៊ូតុងចែករំលែក (Share) នៅរបារខាងក្រោម រួចជ្រើសរើស <strong>បន្ថែមទៅអេក្រង់ដើម (Add to Home Screen)</strong>។</p>
+                </div>
+                <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/70 dark:border-slate-800 space-y-1">
+                    <div class="font-bold text-slate-900 dark:text-white">២. ទូរស័ព្ទ Android និងកុំព្យូទ័រ (Chrome)</div>
+                    <p>ចុចសញ្ញាចុចបីគ្រាប់នៅជ្រុងខាងលើ រួចជ្រើសរើស <strong>ដំឡើងកម្មវិធី (Install App)</strong>។</p>
+                </div>
+            </div>
+
+            <button onclick="closeInstallModal()" class="w-full py-2.5 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold text-xs">
+                យល់ព្រម
+            </button>
+        </div>
+    </div>
+
+    <!-- Class Details Modal -->
+    <div id="classModal" class="no-print fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-sm w-full p-5 shadow-2xl space-y-4">
+            <div class="flex items-start justify-between gap-3">
+                <div>
+                    <div id="modalBadges" class="flex flex-wrap items-center gap-1.5 mb-1.5"></div>
+                    <h3 id="modalTitleKh" class="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white"></h3>
+                    <p id="modalTitleEn" class="text-xs text-slate-500 dark:text-slate-400"></p>
+                </div>
+                <button onclick="closeModal()" class="p-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-500">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M18 6 6 18"></path>
+                        <path d="m6 6 12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="space-y-2 bg-slate-50 dark:bg-slate-800/60 rounded-xl p-3.5 text-xs border border-slate-200/60 dark:border-slate-800">
+                <div class="flex items-center justify-between py-1 border-b border-slate-200/60 dark:border-slate-700/60">
+                    <span class="text-slate-500 dark:text-slate-400">ថ្ងៃ និងម៉ោងសិក្សា៖</span>
+                    <span id="modalTime" class="font-bold text-slate-900 dark:text-white"></span>
+                </div>
+                <div class="flex items-center justify-between py-1 border-b border-slate-200/60 dark:border-slate-700/60">
+                    <span class="text-slate-500 dark:text-slate-400">សាស្ត្រាចារ្យ៖</span>
+                    <span id="modalTeacher" class="font-bold text-slate-900 dark:text-white text-right"></span>
+                </div>
+                <div class="flex items-center justify-between py-1 border-b border-slate-200/60 dark:border-slate-700/60">
+                    <span class="text-slate-500 dark:text-slate-400">បន្ទប់សិក្សា៖</span>
+                    <span id="modalRoom" class="font-extrabold text-rose-600 dark:text-rose-400"></span>
+                </div>
+                <div class="flex items-center justify-between py-1">
+                    <span class="text-slate-500 dark:text-slate-400">សប្តាហ៍សិក្សា៖</span>
+                    <span id="modalWeekType" class="font-bold"></span>
+                </div>
+            </div>
+
+            <button onclick="closeModal()" class="w-full py-2.5 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold text-xs">
+                បិទផ្ទាំងនេះ
+            </button>
+        </div>
+    </div>
+
+    <!-- Dedicated Print Sheet (Visible when printing) -->
+    <div id="printableArea" class="hidden"></div>
+
+    <script>
+        // ==========================================
+        // 1. TIMETABLE DATA (GROUP I1.1718-TC)
+        // ==========================================
+        const DAYS = [
+            { id: 'mon', kh: 'ថ្ងៃចន្ទ', shortKh: 'ចន្ទ', en: 'Monday', headerLabel: 'ថ្ងៃចន្ទ (Monday)', jsDay: 1 },
+            { id: 'tue', kh: 'ថ្ងៃអង្គារ', shortKh: 'អង្គារ', en: 'Tuesday', headerLabel: 'ថ្ងៃអង្គារ (Tuesday)', jsDay: 2 },
+            { id: 'wed', kh: 'ថ្ងៃពុធ', shortKh: 'ពុធ', en: 'Wednesday', headerLabel: 'ថ្ងៃពុធ (Wednesday)', jsDay: 3 },
+            { id: 'thu', kh: 'ថ្ងៃព្រហស្បតិ៍', shortKh: 'ព្រហស្បតិ៍', en: 'Thursday', headerLabel: 'ថ្ងៃព្រហស្បតិ៍ (Thursday)', jsDay: 4 },
+            { id: 'fri', kh: 'ថ្ងៃសុក្រ', shortKh: 'សុក្រ', en: 'Friday', headerLabel: 'ថ្ងៃសុក្រ (Friday)', jsDay: 5 },
+            { id: 'sat', kh: 'ថ្ងៃសៅរ៍', shortKh: 'សៅរ៍', en: 'Saturday', headerLabel: 'ថ្ងៃសៅរ៍ (Saturday)', jsDay: 6 }
+        ];
+
+        const TIME_SLOTS = [
+            { id: 1, start: '07:00', end: '07:55', label: '07:00-07:55', period: 'morning' },
+            { id: 2, start: '08:00', end: '08:55', label: '08:00-08:55', period: 'morning' },
+            { id: 3, start: '09:10', end: '10:05', label: '09:10-10:05', period: 'morning' },
+            { id: 4, start: '10:10', end: '11:05', label: '10:10-11:05', period: 'morning' },
+            { id: 5, start: '13:00', end: '13:55', label: '13:00-13:55', period: 'afternoon' },
+            { id: 6, start: '14:00', end: '14:55', label: '14:00-14:55', period: 'afternoon' },
+            { id: 7, start: '15:10', end: '16:05', label: '15:10-16:05', period: 'afternoon' },
+            { id: 8, start: '16:10', end: '17:05', label: '16:10-17:05', period: 'afternoon' }
+        ];
+
+        const SUBJECT_THEMES = {
+            EPH: {
+                code: 'EPH.I',
+                kh: 'រូបវិទ្យាវិស្វកម្ម I',
+                en: 'Engineering Physics I',
+                bgLight: 'bg-blue-50/70 dark:bg-blue-950/30',
+                border: 'border-blue-200/90 dark:border-blue-800/70',
+                accent: 'bg-blue-600',
+                text: 'text-blue-950 dark:text-blue-200',
+                badge: 'bg-blue-100 dark:bg-blue-900/70 text-blue-700 dark:text-blue-300'
+            },
+            EMA: {
+                code: 'EMA.I',
+                kh: 'គណិតវិទ្យាវិស្វកម្ម I',
+                en: 'Engineering Mathematics I',
+                bgLight: 'bg-indigo-50/70 dark:bg-indigo-950/30',
+                border: 'border-indigo-200/90 dark:border-indigo-800/70',
+                accent: 'bg-indigo-600',
+                text: 'text-indigo-950 dark:text-indigo-200',
+                badge: 'bg-indigo-100 dark:bg-indigo-900/70 text-indigo-700 dark:text-indigo-300'
+            },
+            INF: {
+                code: 'INF',
+                kh: 'ចំណេះដឹងកុំព្យូទ័រមូលដ្ឋាន',
+                en: 'Basic Computer Literacy',
+                bgLight: 'bg-purple-50/70 dark:bg-purple-950/30',
+                border: 'border-purple-200/90 dark:border-purple-800/70',
+                accent: 'bg-purple-600',
+                text: 'text-purple-950 dark:text-purple-200',
+                badge: 'bg-purple-100 dark:bg-purple-900/70 text-purple-700 dark:text-purple-300'
+            },
+            ENG: {
+                code: 'ENG',
+                kh: 'ភាសាអង់គ្លេស',
+                en: 'English',
+                bgLight: 'bg-sky-50/80 dark:bg-sky-950/40',
+                border: 'border-sky-200/90 dark:border-sky-800/70',
+                accent: 'bg-sky-500',
+                text: 'text-sky-950 dark:text-sky-200',
+                badge: 'bg-sky-100 dark:bg-sky-900/70 text-sky-700 dark:text-sky-300'
+            },
+            GEC: {
+                code: 'GEC',
+                kh: 'ការគ្រប់គ្រង និងគណនេយ្យ',
+                en: 'Management & Accounting',
+                bgLight: 'bg-emerald-50/70 dark:bg-emerald-950/30',
+                border: 'border-emerald-200/90 dark:border-emerald-800/70',
+                accent: 'bg-emerald-600',
+                text: 'text-emerald-950 dark:text-emerald-200',
+                badge: 'bg-emerald-100 dark:bg-emerald-900/70 text-emerald-700 dark:text-emerald-300'
+            },
+            HIS: {
+                code: 'HIS',
+                kh: 'ប្រវត្តិវិទ្យា',
+                en: 'History',
+                bgLight: 'bg-amber-50/70 dark:bg-amber-950/30',
+                border: 'border-amber-200/90 dark:border-amber-800/70',
+                accent: 'bg-amber-600',
+                text: 'text-amber-950 dark:text-amber-200',
+                badge: 'bg-amber-100 dark:bg-amber-900/70 text-amber-700 dark:text-amber-300'
+            },
+            PHI: {
+                code: 'PHI',
+                kh: 'ទស្សនវិជ្ជា',
+                en: 'Philosophy',
+                bgLight: 'bg-rose-50/70 dark:bg-rose-950/30',
+                border: 'border-rose-200/90 dark:border-rose-800/70',
+                accent: 'bg-rose-600',
+                text: 'text-rose-950 dark:text-rose-200',
+                badge: 'bg-rose-100 dark:bg-rose-900/70 text-rose-700 dark:text-rose-300'
+            }
+        };
+
+        const SCHEDULE_ITEMS = [
+            // MONDAY
+            { id: 'mon-1', day: 'mon', slot: 1, subjectKey: 'EPH', displaySubjectCell: 'រូបវិទ្យាវិស្វកម្ម I', typeCategory: 'TD', typeKh: 'លំហាត់ (TD)', teacherEn: 'M. MENG Channy', teacherKh: 'លោក ម៉េង ចាន់នី', room: 'I507', roomRed: true, oddWeekOnly: false },
+            { id: 'mon-2', day: 'mon', slot: 2, subjectKey: 'EPH', displaySubjectCell: 'EPH.I', typeCategory: 'TD', typeKh: 'លំហាត់ (TD)', teacherEn: 'M. MENG Channy', teacherKh: 'លោក ម៉េង ចាន់នី', room: 'I507', roomRed: true, oddWeekOnly: false },
+            { id: 'mon-3', day: 'mon', slot: 3, subjectKey: 'EPH', displaySubjectCell: 'រូបវិទ្យាវិស្វកម្ម I', typeCategory: 'Lecture', typeKh: 'មេរៀន (Cours)', teacherEn: 'M. HENG Theany', teacherKh: 'លោក ហេង ធានី', teacherRed: true, room: 'SF2', oddWeekOnly: false },
+            { id: 'mon-4', day: 'mon', slot: 4, subjectKey: 'EPH', displaySubjectCell: 'EPH.I', typeCategory: 'Lecture', typeKh: 'មេរៀន (Cours)', teacherEn: 'M. HENG Theany', teacherKh: 'លោក ហេង ធានី', room: 'SF2', oddWeekOnly: false },
+            { id: 'mon-7', day: 'mon', slot: 7, subjectKey: 'INF', displaySubjectCell: 'ចំណេះដឹងកុំព្យូទ័រមូលដ្ឋាន', typeCategory: 'Lecture', typeKh: 'មេរៀន (សប្តាហ៍សេស)', teacherEn: 'M. ANG OUSA', teacherKh: 'លោក អាំង ឧស្សាហ៍', room: 'SF2', oddWeekOnly: true },
+            { id: 'mon-8', day: 'mon', slot: 8, subjectKey: 'INF', displaySubjectCell: 'INF', typeCategory: 'Lecture', typeKh: 'មេរៀន (សប្តាហ៍សេស)', teacherEn: 'M. ANG OUSA', teacherKh: 'លោក អាំង ឧស្សាហ៍', room: 'SF2', oddWeekOnly: true },
+
+            // TUESDAY
+            { id: 'tue-1', day: 'tue', slot: 1, isGreenBlock: true },
+            { id: 'tue-2', day: 'tue', slot: 2, isGreenBlock: true },
+            { id: 'tue-5', day: 'tue', slot: 5, subjectKey: 'INF', displaySubjectCell: 'ចំណេះដឹងកុំព្យូទ័រមូលដ្ឋាន', typeCategory: 'TP', typeKh: 'អនុវត្តន៍ (TP-18)', teacherEn: 'NOP Phearum', teacherKh: 'លោក ណុប ភារម្យ', room: 'J608', roomRed: true, oddWeekOnly: false },
+            { id: 'tue-6', day: 'tue', slot: 6, subjectKey: 'INF', displaySubjectCell: 'INF', typeCategory: 'TP', typeKh: 'អនុវត្តន៍ (TP-18)', teacherEn: 'NOP Phearum', teacherKh: 'លោក ណុប ភារម្យ', room: 'J608', roomRed: true, oddWeekOnly: false },
+            { id: 'tue-7', day: 'tue', slot: 7, subjectKey: 'EMA', displaySubjectCell: 'គណិតវិទ្យាវិស្វកម្ម I', typeCategory: 'TD', typeKh: 'លំហាត់ (TD)', teacherEn: 'M. BUN THEAVUTH Ketekun', teacherKh: 'លោក ប៊ុន ថាវុធ កេតុគុណ', room: 'I507', roomRed: true, oddWeekOnly: false },
+            { id: 'tue-8', day: 'tue', slot: 8, subjectKey: 'EMA', displaySubjectCell: 'EMA.I', typeCategory: 'TD', typeKh: 'លំហាត់ (TD)', teacherEn: 'M. BUN THEAVUTH Ketekun', teacherKh: 'លោក ប៊ុន ថាវុធ កេតុគុណ', room: 'I507', roomRed: true, oddWeekOnly: false },
+
+            // WEDNESDAY
+            { id: 'wed-1', day: 'wed', slot: 1, subjectKey: 'ENG', displaySubjectCell: 'ភាសាអង់គ្លេស', typeCategory: 'Lecture', typeKh: 'ភាសាអង់គ្លេស', teacherEn: '', teacherKh: 'សាស្ត្រាចារ្យភាសាអង់គ្លេស', room: 'I501', isBlueCell: true, oddWeekOnly: false },
+            { id: 'wed-2', day: 'wed', slot: 2, subjectKey: 'ENG', displaySubjectCell: 'ភាសាអង់គ្លេស', typeCategory: 'Lecture', typeKh: 'ភាសាអង់គ្លេស', teacherEn: '', teacherKh: 'សាស្ត្រាចារ្យភាសាអង់គ្លេស', room: 'I501', isBlueCell: true, oddWeekOnly: false },
+            { id: 'wed-3', day: 'wed', slot: 3, subjectKey: 'GEC', displaySubjectCell: 'ការគ្រប់គ្រង និងគណនេយ្យ', typeCategory: 'Lecture', typeKh: 'មេរៀន (Cours)', teacherEn: 'M. PEK Bunpanga', teacherKh: 'លោក ប៉ិក ប៊ុនបញ្ញា', room: 'SF1', oddWeekOnly: false },
+            { id: 'wed-4', day: 'wed', slot: 4, subjectKey: 'GEC', displaySubjectCell: 'GEC', typeCategory: 'Lecture', typeKh: 'មេរៀន (Cours)', teacherEn: 'M. PEK Bunpanga', teacherKh: 'លោក ប៉ិក ប៊ុនបញ្ញា', room: 'SF1', oddWeekOnly: false },
+            { id: 'wed-5', day: 'wed', slot: 5, subjectKey: 'EPH', displaySubjectCell: 'រូបវិទ្យាវិស្វកម្ម I', typeCategory: 'Lecture', typeKh: 'មេរៀន (Cours)', teacherEn: 'M. HENG Theany', teacherKh: 'លោក ហេង ធានី', teacherRed: true, room: 'SF1', oddWeekOnly: false },
+            { id: 'wed-6', day: 'wed', slot: 6, subjectKey: 'EPH', displaySubjectCell: 'EPH.I', typeCategory: 'Lecture', typeKh: 'មេរៀន (Cours)', teacherEn: 'M. HENG Theany', teacherKh: 'លោក ហេង ធានី', room: 'SF1', oddWeekOnly: false },
+
+            // THURSDAY
+            { id: 'thu-1', day: 'thu', slot: 1, isGreenBlock: true },
+            { id: 'thu-2', day: 'thu', slot: 2, isGreenBlock: true },
+            { id: 'thu-5', day: 'thu', slot: 5, subjectKey: 'EMA', displaySubjectCell: 'គណិតវិទ្យាវិស្វកម្ម I', typeCategory: 'Lecture', typeKh: 'មេរៀន (Cours)', teacherEn: 'Dr. MUTH Boravy', teacherKh: 'បណ្ឌិត មុត បូរ៉ាវី', teacherRed: true, room: 'SF2', roomRed: true, oddWeekOnly: false },
+            { id: 'thu-6', day: 'thu', slot: 6, subjectKey: 'EMA', displaySubjectCell: 'EMA.I', typeCategory: 'Lecture', typeKh: 'មេរៀន (Cours)', teacherEn: 'Dr. MUTH Boravy', teacherKh: 'បណ្ឌិត មុត បូរ៉ាវី', teacherRed: true, room: 'SF2', roomRed: true, oddWeekOnly: false },
+
+            // FRIDAY
+            { id: 'fri-1', day: 'fri', slot: 1, subjectKey: 'EMA', displaySubjectCell: 'គណិតវិទ្យាវិស្វកម្ម I', typeCategory: 'Lecture', typeKh: 'មេរៀន (Cours)', teacherEn: 'Dr. MUTH Boravy', teacherKh: 'បណ្ឌិត មុត បូរ៉ាវី', teacherRed: true, room: 'SF1', roomRed: true, oddWeekOnly: false },
+            { id: 'fri-2', day: 'fri', slot: 2, subjectKey: 'EMA', displaySubjectCell: 'EMA.I', typeCategory: 'Lecture', typeKh: 'មេរៀន (Cours)', teacherEn: 'Dr. MUTH Boravy', teacherKh: 'បណ្ឌិត មុត បូរ៉ាវី', teacherRed: true, room: 'SF1', roomRed: true, oddWeekOnly: false },
+            { id: 'fri-3', day: 'fri', slot: 3, subjectKey: 'HIS', displaySubjectCell: 'ប្រវត្តិវិទ្យា', typeCategory: 'Lecture', typeKh: 'មេរៀន (Cours)', teacherEn: 'Dr. TIENG Sopheaktrea', teacherKh: 'បណ្ឌិត ទៀង សុភ័ក្រត្រា', room: 'សាលសន្និសីទ I', oddWeekOnly: false },
+            { id: 'fri-4', day: 'fri', slot: 4, subjectKey: 'HIS', displaySubjectCell: 'HIS', typeCategory: 'Lecture', typeKh: 'មេរៀន (Cours)', teacherEn: 'Dr. TIENG Sopheaktrea', teacherKh: 'បណ្ឌិត ទៀង សុភ័ក្រត្រា', room: 'សាលសន្និសីទ I', oddWeekOnly: false },
+
+            // SATURDAY
+            { id: 'sat-1', day: 'sat', slot: 1, subjectKey: 'PHI', displaySubjectCell: 'ទស្សនវិជ្ជា', typeCategory: 'Lecture', typeKh: 'មេរៀន (Cours)', teacherEn: 'M. MAO Chansovannrith', teacherKh: 'លោក ម៉ៅ ចាន់សុវណ្ណឫទ្ធិ', teacherRed: true, room: 'សាលសន្និសីទ I', oddWeekOnly: false },
+            { id: 'sat-2', day: 'sat', slot: 2, subjectKey: 'PHI', displaySubjectCell: 'PHI', typeCategory: 'Lecture', typeKh: 'មេរៀន (Cours)', teacherEn: 'M. MAO Chansovannrith', teacherKh: 'លោក ម៉ៅ ចាន់សុវណ្ណឫទ្ធិ', teacherRed: true, room: 'សាលសន្និសីទ I', oddWeekOnly: false },
+            { id: 'sat-3', day: 'sat', slot: 3, subjectKey: 'INF', displaySubjectCell: 'ចំណេះដឹងកុំព្យូទ័រមូលដ្ឋាន', typeCategory: 'TP', typeKh: 'អនុវត្តន៍ (TP-17)', teacherEn: 'YANN Sovannvichea', teacherKh: 'លោក យ៉ាន់ សុវណ្ណវិជ្ជា', room: 'F210', roomRed: true, oddWeekOnly: false },
+            { id: 'sat-4', day: 'sat', slot: 4, subjectKey: 'INF', displaySubjectCell: 'INF', typeCategory: 'TP', typeKh: 'អនុវត្តន៍ (TP-17)', teacherEn: 'YANN Sovannvichea', teacherKh: 'លោក យ៉ាន់ សុវណ្ណវិជ្ជា', room: 'F210', roomRed: true, oddWeekOnly: false },
+            { id: 'sat-7', day: 'sat', slot: 7, subjectKey: 'GEC', displaySubjectCell: 'ការគ្រប់គ្រង និងគណនេយ្យ', typeCategory: 'Lecture', typeKh: 'មេរៀន (សប្តាហ៍សេស)', teacherEn: 'M. PEK Bunpanga', teacherKh: 'លោក ប៉ិក ប៊ុនបញ្ញា', room: 'SF1', oddWeekOnly: true },
+            { id: 'sat-8', day: 'sat', slot: 8, subjectKey: 'GEC', displaySubjectCell: 'GEC', typeCategory: 'Lecture', typeKh: 'មេរៀន (សប្តាហ៍សេស)', teacherEn: 'M. PEK Bunpanga', teacherKh: 'លោក ប៉ិក ប៊ុនបញ្ញា', room: 'SF1', oddWeekOnly: true }
+        ];
+
+        // ==========================================
+        // 2. STATE & INITIALIZATION
+        // ==========================================
+        let state = {
+            selectedDay: 'mon',
+            weekFilter: 'all', // 'all', 'odd', 'even'
+            searchQuery: '',
+            mergeSlots: true,
+            showFreeSlots: false
+        };
+
+        let deferredInstallPrompt = null;
+        let toastTimeout = null;
+
+        window.onload = function() {
+            const todayJs = new Date().getDay();
+            const foundDay = DAYS.find(d => d.jsDay === todayJs);
+            if (foundDay) state.selectedDay = foundDay.id;
+
+            initPWA();
+            renderWeekStatusBanner();
+            renderDayTabs();
+            renderLegend();
+            renderSchedule();
+            renderPrintableSheet();
+        };
+
+        function generateAppIconDataURL(size) {
+            const canvas = document.createElement('canvas');
+            canvas.width = size;
+            canvas.height = size;
+            const ctx = canvas.getContext('2d');
+            const grad = ctx.createLinearGradient(0, 0, size, size);
+            grad.addColorStop(0, '#2563eb');
+            grad.addColorStop(1, '#3730a3');
+            ctx.fillStyle = grad;
+            const r = size * 0.22;
+            ctx.beginPath();
+            ctx.moveTo(r, 0);
+            ctx.lineTo(size - r, 0);
+            ctx.quadraticCurveTo(size, 0, size, r);
+            ctx.lineTo(size, size - r);
+            ctx.quadraticCurveTo(size, size, size - r, size);
+            ctx.lineTo(r, size);
+            ctx.quadraticCurveTo(0, size, 0, size - r);
+            ctx.lineTo(0, r);
+            ctx.quadraticCurveTo(0, 0, r, 0);
+            ctx.closePath();
+            ctx.fill();
+
+            ctx.fillStyle = '#ffffff';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.font = `bold ${Math.round(size * 0.24)}px Inter, sans-serif`;
+            ctx.fillText('ITC', size / 2, size * 0.45);
+            ctx.font = `bold ${Math.round(size * 0.13)}px Inter, sans-serif`;
+            ctx.fillStyle = '#e0e7ff';
+            ctx.fillText('I1.1718-TC', size / 2, size * 0.72);
+            return canvas.toDataURL('image/png');
+        }
+
+        function initPWA() {
+            try {
+                const icon192 = generateAppIconDataURL(192);
+                const icon512 = generateAppIconDataURL(512);
+                const appleIconEl = document.getElementById('appleTouchIcon');
+                if (appleIconEl) appleIconEl.href = icon192;
+
+                const manifestObj = {
+                    name: 'កាលវិភាគសិក្សា I1.1718-TC',
+                    short_name: 'I1.1718-TC',
+                    start_url: '.',
+                    display: 'standalone',
+                    background_color: '#0f172a',
+                    theme_color: '#2563eb',
+                    icons: [
+                        { src: icon192, sizes: '192x192', type: 'image/png' },
+                        { src: icon512, sizes: '512x512', type: 'image/png' }
+                    ]
+                };
+                const manifestLink = document.getElementById('pwaManifestLink');
+                if (manifestLink) {
+                    manifestLink.href = 'data:application/manifest+json;charset=utf-8,' + encodeURIComponent(JSON.stringify(manifestObj));
+                }
+            } catch (e) {}
+
+            window.addEventListener('beforeinstallprompt', (e) => {
+                e.preventDefault();
+                deferredInstallPrompt = e;
+                const banner = document.getElementById('directInstallBanner');
+                if (banner) banner.classList.remove('hidden');
+            });
+        }
+
+        function triggerInstallApp() {
+            if (deferredInstallPrompt) {
+                promptNativeInstall();
+            } else {
+                const modal = document.getElementById('installGuideModal');
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            }
+        }
+
+        async function promptNativeInstall() {
+            if (!deferredInstallPrompt) return;
+            deferredInstallPrompt.prompt();
+            const { outcome } = await deferredInstallPrompt.userChoice;
+            if (outcome === 'accepted') {
+                deferredInstallPrompt = null;
+                closeInstallModal();
+            }
+        }
+
+        function closeInstallModal() {
+            const modal = document.getElementById('installGuideModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toastContainer');
+            const textEl = document.getElementById('toastText');
+            const dotEl = document.getElementById('toastDot');
+            if (!container || !textEl) return;
+
+            dotEl.className = 'w-2 h-2 rounded-full shrink-0 ' + (
+                type === 'odd' ? 'bg-amber-400' : (type === 'even' ? 'bg-emerald-400' : 'bg-blue-400')
+            );
+            textEl.textContent = message;
+            container.classList.remove('opacity-0', 'translate-y-2');
+            container.classList.add('opacity-100', 'translate-y-0');
+
+            if (toastTimeout) clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                container.classList.remove('opacity-100', 'translate-y-0');
+                container.classList.add('opacity-0', 'translate-y-2');
+            }, 2600);
+        }
+
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+        }
+
+        function toggleMergeSlots() {
+            state.mergeSlots = !state.mergeSlots;
+            const btn = document.getElementById('mergeToggleBtn');
+            btn.className = state.mergeSlots
+                ? 'px-2.5 py-1 rounded-lg text-[11px] font-bold border border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 transition'
+                : 'px-2.5 py-1 rounded-lg text-[11px] font-bold border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-400 transition';
+            renderSchedule();
+        }
+
+        function toggleFreeSlots() {
+            state.showFreeSlots = !state.showFreeSlots;
+            const btn = document.getElementById('freeSlotToggleBtn');
+            btn.className = state.showFreeSlots
+                ? 'px-2.5 py-1 rounded-lg text-[11px] font-bold border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 transition'
+                : 'px-2.5 py-1 rounded-lg text-[11px] font-bold border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-400 transition';
+            renderSchedule();
+        }
+
+        function handleSearch(val) {
+            state.searchQuery = val.trim();
+            document.getElementById('clearSearchBtn').classList.toggle('hidden', state.searchQuery.length === 0);
+            renderSchedule();
+        }
+
+        function clearSearch() {
+            state.searchQuery = '';
+            document.getElementById('searchInput').value = '';
+            document.getElementById('clearSearchBtn').classList.add('hidden');
+            renderSchedule();
+        }
+
+        function filterBySubjectCode(code) {
+            const input = document.getElementById('searchInput');
+            if (state.searchQuery.toLowerCase() === code.toLowerCase()) {
+                clearSearch();
+            } else {
+                input.value = code;
+                handleSearch(code);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function jumpToToday() {
+            const todayJs = new Date().getDay();
+            const found = DAYS.find(d => d.jsDay === todayJs);
+            setDay(found ? found.id : 'mon');
+        }
+
+        function setDay(dayId) {
+            state.selectedDay = dayId;
+            renderDayTabs();
+            renderWeekStatusBanner();
+            renderSchedule();
+        }
+
+        function setWeekFilter(filter) {
+            state.weekFilter = filter;
+            const btnAll = document.getElementById('week-all');
+            const btnOdd = document.getElementById('week-odd');
+            const btnEven = document.getElementById('week-even');
+
+            btnAll.className = 'px-3 py-1.5 rounded-lg text-xs font-bold transition text-center ' + (
+                filter === 'all' ? 'bg-white dark:bg-slate-700 text-blue-600 dark:text-blue-300 shadow-sm' : 'text-slate-600 dark:text-slate-400'
+            );
+            btnOdd.className = 'px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center justify-center gap-1.5 ' + (
+                filter === 'odd' ? 'bg-amber-500 text-white shadow-sm' : 'text-slate-600 dark:text-slate-400'
+            );
+            btnEven.className = 'px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center justify-center gap-1.5 ' + (
+                filter === 'even' ? 'bg-emerald-600 text-white shadow-sm' : 'text-slate-600 dark:text-slate-400'
+            );
+
+            if (filter === 'odd') {
+                showToast('សប្តាហ៍សេស៖ មានរៀនរសៀលថ្ងៃចន្ទ និងរសៀលថ្ងៃសៅរ៍', 'odd');
+            } else if (filter === 'even') {
+                showToast('សប្តាហ៍គូ៖ រសៀលថ្ងៃចន្ទ និងរសៀលថ្ងៃសៅរ៍ ទំនេរ', 'even');
+            } else {
+                showToast('បង្ហាញមុខវិជ្ជាគ្រប់សប្តាហ៍ទាំងអស់', 'info');
+            }
+
+            renderDayTabs();
+            renderWeekStatusBanner();
+            renderSchedule();
+            renderPrintableSheet();
+        }
+
+        function renderWeekStatusBanner() {
+            const box = document.getElementById('weekFilterStatusBox');
+            if (!box) return;
+
+            if (state.weekFilter === 'all') {
+                box.className = 'hidden';
+                box.innerHTML = '';
+                return;
+            }
+
+            if (state.weekFilter === 'odd') {
+                box.className = 'flex flex-wrap items-center justify-between gap-2 rounded-xl px-3 py-2 text-xs border bg-amber-50/90 dark:bg-amber-950/40 border-amber-200 dark:border-amber-800/80 text-amber-900 dark:text-amber-200';
+                box.innerHTML = `
+                    <span><strong>សប្តាហ៍សេស (ទី ១, ៣, ៥..១៥)៖</strong> មានរៀនរសៀលថ្ងៃចន្ទ (INF) និងរសៀលថ្ងៃសៅរ៍ (GEC)។</span>
+                    <div class="flex items-center gap-1.5">
+                        <button onclick="setDay('mon')" class="px-2 py-0.5 rounded-md bg-amber-500 text-white font-bold text-[11px]">មើលថ្ងៃចន្ទ</button>
+                        <button onclick="setDay('sat')" class="px-2 py-0.5 rounded-md bg-amber-500 text-white font-bold text-[11px]">មើលថ្ងៃសៅរ៍</button>
+                    </div>
+                `;
+            } else {
+                box.className = 'flex flex-wrap items-center justify-between gap-2 rounded-xl px-3 py-2 text-xs border bg-emerald-50/90 dark:bg-emerald-950/40 border-emerald-200 dark:border-emerald-800/80 text-emerald-900 dark:text-emerald-200';
+                box.innerHTML = `
+                    <span><strong>សប្តាហ៍គូ (ទី ២, ៤, ៦..១៦)៖</strong> ទំនេរនៅរសៀលថ្ងៃចន្ទ និងរសៀលថ្ងៃសៅរ៍ (15:10-17:05)។</span>
+                    <div class="flex items-center gap-1.5">
+                        <button onclick="setDay('mon')" class="px-2 py-0.5 rounded-md bg-emerald-600 text-white font-bold text-[11px]">មើលថ្ងៃចន្ទ</button>
+                        <button onclick="setDay('sat')" class="px-2 py-0.5 rounded-md bg-emerald-600 text-white font-bold text-[11px]">មើលថ្ងៃសៅរ៍</button>
+                    </div>
+                `;
+            }
+        }
+
+        // ==========================================
+        // 3. DAY TABS & SCHEDULE CARDS
+        // ==========================================
+        function renderDayTabs() {
+            const container = document.getElementById('dayTabsContainer');
+            const todayJs = new Date().getDay();
+
+            let html = '';
+            DAYS.forEach(d => {
+                const isActive = state.selectedDay === d.id;
+                const isToday = d.jsDay === todayJs;
+                const activeSlots = SCHEDULE_ITEMS.filter(item => {
+                    if (item.day !== d.id || item.isGreenBlock) return false;
+                    if (state.weekFilter === 'even' && item.oddWeekOnly) return false;
+                    return true;
+                });
+                const count = activeSlots.length / 2;
+
+                html += `
+                    <button onclick="setDay('${d.id}')" class="relative px-3.5 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 shrink-0 ${
+                        isActive 
+                        ? 'bg-blue-600 text-white shadow-sm' 
+                        : 'bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 text-slate-700 dark:text-slate-300'
+                    }">
+                        <span>${d.shortKh}</span>
+                        <span class="px-1.5 py-0.2 rounded-full text-[10px] font-extrabold ${
+                            isActive ? 'bg-white/25 text-white' : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400'
+                        }">${count}</span>
+                        ${isToday ? `<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 absolute top-1 right-1"></span>` : ''}
+                    </button>
+                `;
+            });
+
+            html += `
+                <button onclick="setDay('all')" class="px-3.5 py-2 rounded-xl text-xs font-bold transition shrink-0 ${
+                    state.selectedDay === 'all'
+                    ? 'bg-blue-600 text-white shadow-sm'
+                    : 'bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 text-slate-700 dark:text-slate-300'
+                }">គ្រប់ថ្ងៃ</button>
+                <button onclick="setDay('grid')" class="px-3.5 py-2 rounded-xl text-xs font-bold transition shrink-0 ${
+                    state.selectedDay === 'grid'
+                    ? 'bg-blue-600 text-white shadow-sm'
+                    : 'bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 text-slate-700 dark:text-slate-300'
+                }">តារាងពេញ</button>
+            `;
+
+            container.innerHTML = html;
+        }
+
+        function itemMatchesFilters(item) {
+            if (item.isGreenBlock) return state.showFreeSlots && !state.searchQuery;
+            if (state.weekFilter === 'even' && item.oddWeekOnly) return false;
+            if (state.searchQuery) {
+                const q = state.searchQuery.toLowerCase();
+                const subj = SUBJECT_THEMES[item.subjectKey];
+                const haystack = [subj.code, subj.kh, subj.en, item.teacherKh, item.teacherEn, item.room, item.typeKh].join(' ').toLowerCase();
+                return haystack.includes(q);
+            }
+            return true;
+        }
+
+        function getDayEntries(dayId) {
+            let entries = [];
+            for (let slotObj of TIME_SLOTS) {
+                const found = SCHEDULE_ITEMS.find(x => x.day === dayId && x.slot === slotObj.id);
+                if (found) {
+                    if (state.weekFilter === 'even' && found.oddWeekOnly && !state.searchQuery) {
+                        entries.push({
+                            ...found,
+                            startSlot: slotObj.id,
+                            endSlot: slotObj.id,
+                            startTime: slotObj.start,
+                            endTime: slotObj.end,
+                            period: slotObj.period,
+                            durationHours: 1,
+                            isSkippedEvenWeek: true
+                        });
+                    } else if (itemMatchesFilters(found)) {
+                        entries.push({
+                            ...found,
+                            startSlot: slotObj.id,
+                            endSlot: slotObj.id,
+                            startTime: slotObj.start,
+                            endTime: slotObj.end,
+                            period: slotObj.period,
+                            durationHours: 1
+                        });
+                    }
+                } else if (state.showFreeSlots && !state.searchQuery) {
+                    entries.push({
+                        id: `${dayId}-free-${slotObj.id}`,
+                        day: dayId,
+                        slot: slotObj.id,
+                        startSlot: slotObj.id,
+                        endSlot: slotObj.id,
+                        startTime: slotObj.start,
+                        endTime: slotObj.end,
+                        period: slotObj.period,
+                        isFreeSlot: true,
+                        durationHours: 1
+                    });
+                }
+            }
+
+            if (state.mergeSlots) {
+                let merged = [];
+                for (let i = 0; i < entries.length; i++) {
+                    const curr = entries[i];
+                    const next = entries[i + 1];
+                    const canMergePair = next && (
+                        (curr.startSlot === 1 && next.startSlot === 2) ||
+                        (curr.startSlot === 3 && next.startSlot === 4) ||
+                        (curr.startSlot === 5 && next.startSlot === 6) ||
+                        (curr.startSlot === 7 && next.startSlot === 8)
+                    );
+                    if (
+                        canMergePair &&
+                        curr.subjectKey === next.subjectKey &&
+                        curr.typeCategory === next.typeCategory &&
+                        curr.room === next.room &&
+                        curr.isFreeSlot === next.isFreeSlot &&
+                        curr.isGreenBlock === next.isGreenBlock &&
+                        curr.isSkippedEvenWeek === next.isSkippedEvenWeek
+                    ) {
+                        merged.push({
+                            ...curr,
+                            endSlot: next.endSlot,
+                            endTime: next.endTime,
+                            durationHours: 2
+                        });
+                        i++;
+                    } else {
+                        merged.push(curr);
+                    }
+                }
+                return merged;
+            }
+            return entries;
+        }
+
+        function renderSchedule() {
+            const container = document.getElementById('scheduleContainer');
+            const banner = document.getElementById('daySummaryBanner');
+
+            if (state.selectedDay === 'grid') {
+                banner.classList.add('hidden');
+                container.innerHTML = renderFullGridTable();
+                return;
+            }
+
+            banner.classList.remove('hidden');
+
+            if (state.selectedDay === 'all') {
+                document.getElementById('currentDayTitle').textContent = 'កាលវិភាគប្រចាំសប្តាហ៍ (ចន្ទ ដល់ សៅរ៍)';
+                document.getElementById('currentDayStats').textContent = 'បង្ហាញម៉ោងសិក្សាទាំងអស់តាមថ្ងៃនីមួយៗ';
+                let allHtml = '';
+                DAYS.forEach(d => {
+                    const dayEntries = getDayEntries(d.id);
+                    if (dayEntries.length > 0) {
+                        allHtml += `
+                            <div class="space-y-2 pb-3">
+                                <div class="flex items-center gap-2 px-1">
+                                    <span class="w-2 h-2 rounded-full bg-blue-600"></span>
+                                    <h3 class="font-extrabold text-sm text-slate-900 dark:text-white">${d.kh}</h3>
+                                </div>
+                                <div class="space-y-2">
+                                    ${dayEntries.map(entry => renderClassCard(entry)).join('')}
+                                </div>
+                            </div>
+                        `;
+                    }
+                });
+                container.innerHTML = allHtml || renderEmptyState();
+                return;
+            }
+
+            const dayObj = DAYS.find(d => d.id === state.selectedDay);
+            const entries = getDayEntries(state.selectedDay);
+            const activeClasses = entries.filter(e => !e.isFreeSlot && !e.isGreenBlock && !e.isSkippedEvenWeek);
+            const totalHours = activeClasses.reduce((acc, c) => acc + c.durationHours, 0);
+
+            document.getElementById('currentDayTitle').textContent = dayObj.kh;
+            document.getElementById('currentDayStats').textContent = `${activeClasses.length} មុខវិជ្ជា (${totalHours} ម៉ោងសិក្សា)`;
+
+            if (entries.length === 0) {
+                container.innerHTML = renderEmptyState();
+                return;
+            }
+
+            container.innerHTML = entries.map(entry => renderClassCard(entry)).join('');
+        }
+
+        function renderClassCard(entry) {
+            if (entry.isSkippedEvenWeek) {
+                const subj = SUBJECT_THEMES[entry.subjectKey];
+                return `
+                    <div class="card-enter rounded-2xl p-3.5 bg-emerald-50/70 dark:bg-emerald-950/30 border border-dashed border-emerald-300 dark:border-emerald-800 flex items-center justify-between gap-3">
+                        <div class="flex items-center gap-3">
+                            <div class="text-center min-w-[70px] py-1.5 px-2 rounded-xl bg-white dark:bg-slate-900 border border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300 text-xs font-extrabold">
+                                ${entry.startTime}<br><span class="text-[10px] font-normal opacity-70">ដល់</span><br>${entry.endTime}
+                            </div>
+                            <div>
+                                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-600 text-white">ទំនេរនៅសប្តាហ៍គូ</span>
+                                <div class="font-bold text-xs sm:text-sm text-slate-700 dark:text-slate-200 line-through mt-1">${subj.kh} — ${entry.teacherKh}</div>
+                                <div class="text-[11px] text-emerald-700 dark:text-emerald-400">មុខវិជ្ជានេះរៀនតែសប្តាហ៍សេសប៉ុណ្ណោះ</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            if (entry.isGreenBlock || entry.isFreeSlot) {
+                return `
+                    <div class="card-enter rounded-xl p-3 bg-slate-100/80 dark:bg-slate-900/50 border border-dashed border-slate-300 dark:border-slate-800 flex items-center justify-between text-slate-500 text-xs">
+                        <span class="font-bold">${entry.startTime} - ${entry.endTime}</span>
+                        <span>ម៉ោងទំនេរ (${entry.durationHours} ម៉ោង)</span>
+                    </div>
+                `;
+            }
+
+            const subj = SUBJECT_THEMES[entry.subjectKey];
+            const typeBadgeColors = {
+                'Lecture': 'bg-blue-600 text-white',
+                'TD': 'bg-emerald-600 text-white',
+                'TP': 'bg-purple-600 text-white'
+            };
+
+            return `
+                <div onclick="openModal('${entry.id}', '${entry.startTime}', '${entry.endTime}')" 
+                     class="card-enter cursor-pointer rounded-2xl p-3.5 ${subj.bgLight} border ${subj.border} hover:shadow-sm active:scale-[0.995] transition relative overflow-hidden">
+                    <div class="absolute left-0 top-0 bottom-0 w-1.5 ${subj.accent}"></div>
+
+                    <div class="flex items-center justify-between gap-3 pl-1.5">
+                        <div class="flex items-center gap-3 min-w-0">
+                            <!-- Clean Time Column -->
+                            <div class="flex flex-col items-center justify-center min-w-[68px] py-1.5 px-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shrink-0">
+                                <span class="text-xs font-extrabold text-slate-900 dark:text-white">${entry.startTime}</span>
+                                <span class="text-[10px] text-slate-400">ដល់</span>
+                                <span class="text-xs font-extrabold text-slate-900 dark:text-white">${entry.endTime}</span>
+                            </div>
+
+                            <!-- Clean Subject & Teacher Info -->
+                            <div class="min-w-0 space-y-0.5">
+                                <div class="flex flex-wrap items-center gap-1">
+                                    <span class="px-2 py-0.5 rounded text-[10px] font-bold ${typeBadgeColors[entry.typeCategory] || 'bg-slate-700 text-white'}">${entry.typeKh}</span>
+                                    <span class="px-1.5 py-0.5 rounded text-[10px] font-bold ${subj.badge}">${subj.code}</span>
+                                    ${entry.oddWeekOnly ? `<span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-amber-500 text-white">សប្តាហ៍សេស</span>` : ''}
+                                </div>
+                                <h3 class="text-sm sm:text-base font-extrabold ${subj.text} truncate pt-0.5">${subj.kh}</h3>
+                                <div class="text-xs text-slate-600 dark:text-slate-300 font-semibold truncate">${entry.teacherKh}</div>
+                            </div>
+                        </div>
+
+                        <!-- Clean Room Pill -->
+                        <div class="shrink-0 text-right">
+                            <span class="block text-[10px] text-slate-400 mb-0.5">បន្ទប់</span>
+                            <span class="inline-block px-2.5 py-1 rounded-xl bg-white dark:bg-slate-900 border border-rose-200 dark:border-rose-900/60 text-rose-600 dark:text-rose-400 font-extrabold text-xs sm:text-sm shadow-sm">
+                                ${entry.room}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderEmptyState() {
+            return `
+                <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 text-center border border-slate-200 dark:border-slate-800 space-y-2">
+                    <div class="font-bold text-sm text-slate-700 dark:text-slate-200">មិនឃើញមានម៉ោងសិក្សាទេ</div>
+                    <button onclick="clearSearch(); setWeekFilter('all');" class="px-3.5 py-1.5 rounded-xl bg-blue-600 text-white text-xs font-bold">
+                        បង្ហាញកាលវិភាគទាំងអស់វិញ
+                    </button>
+                </div>
+            `;
+        }
+
+        // ==========================================
+        // 4. FULL TABLE & GUARANTEED PRINT / PNG ENGINE
+        // ==========================================
+        function renderFullGridTable() {
+            return `
+                <div class="bg-white dark:bg-slate-900 rounded-2xl p-3 sm:p-4 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
+                    <div class="flex items-center justify-between gap-2">
+                        <h3 class="font-extrabold text-sm text-slate-900 dark:text-white">តារាងកាលវិភាគពេញលេញ</h3>
+                        <button onclick="openPrintModal()" class="px-3 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold flex items-center gap-1.5">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                                <rect width="12" height="8" x="6" y="14"></rect>
+                            </svg>
+                            <span>បោះពុម្ពតារាង</span>
+                        </button>
+                    </div>
+                    <div class="overflow-x-auto pb-1">
+                        ${buildOfficialTableHTML(false)}
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderPrintableSheet() {
+            const html = buildOfficialTableHTML(true);
+            const printArea = document.getElementById('printableArea');
+            if (printArea) printArea.innerHTML = html;
+            const modalPreview = document.getElementById('modalPrintPreviewContent');
+            if (modalPreview) modalPreview.innerHTML = html;
+        }
+
+        function buildOfficialTableHTML(isPrintMode) {
+            const weekSubtitle = state.weekFilter === 'odd'
+                ? 'សប្តាហ៍សេស (ទី ១, ៣, ៥, ៧, ៩, ១១, ១៣, ១៥)'
+                : (state.weekFilter === 'even'
+                    ? 'សប្តាហ៍គូ (ទី ២, ៤, ៦, ៨, ១០, ១២, ១៤, ១៦)'
+                    : 'ចាប់ពីថ្ងៃទី ១៩ តុលា ២០២៦ (សប្តាហ៍ទី ១ ដល់ ១៦)');
+
+            let tableHtml = `
+                <div class="${isPrintMode ? 'text-black bg-white' : 'min-w-[800px]'}">
+                    <div class="flex items-center justify-between mb-3 px-1">
+                        <div class="flex items-center gap-2.5">
+                            <div class="w-11 h-11 rounded-full border-2 border-blue-800 flex items-center justify-center text-blue-900 font-extrabold text-xs">
+                                ITC
+                            </div>
+                            <div class="text-xs">
+                                <div class="font-bold">វិទ្យាស្ថានបច្ចេកវិទ្យាកម្ពុជា</div>
+                                <div class="text-[11px] opacity-75">កាលវិភាគសិក្សាថ្នាក់ឆ្នាំសិក្សាមូលដ្ឋាន</div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <div class="font-extrabold text-sm sm:text-base">កាលវិភាគសិក្សា ២០២៦-២០២៧</div>
+                            <div class="font-bold text-xs sm:text-sm">ក្រុម៖ I1.1718-TC</div>
+                        </div>
+                        <div class="text-right text-xs">
+                            <div class="font-bold">ឆមាសទី ១</div>
+                            <div>${weekSubtitle}</div>
+                        </div>
+                    </div>
+
+                    <table class="print-table w-full border-collapse border border-slate-800 text-xs">
+                        <thead>
+                            <tr class="bg-slate-100 text-slate-900">
+                                <th class="border border-slate-800 p-2 w-24 text-center font-bold">ម៉ោងសិក្សា</th>
+                                ${DAYS.map(d => `<th class="border border-slate-800 p-2 text-center font-bold w-[14.8%]">${d.kh}</th>`).join('')}
+                            </tr>
+                        </thead>
+                        <tbody>
+            `;
+
+            TIME_SLOTS.forEach(slotObj => {
+                if (slotObj.id === 5) {
+                    tableHtml += `<tr><td colspan="7" class="border border-slate-800 h-3 bg-slate-100/70"></td></tr>`;
+                }
+                tableHtml += `<tr>`;
+                tableHtml += `<td class="border border-slate-800 p-1.5 text-center font-bold whitespace-nowrap align-middle">${slotObj.label}</td>`;
+
+                DAYS.forEach(d => {
+                    const item = SCHEDULE_ITEMS.find(x => x.day === d.id && x.slot === slotObj.id);
+                    if (!item) {
+                        tableHtml += `<td class="border border-slate-800 p-1.5 h-14"></td>`;
+                    } else if (item.isGreenBlock) {
+                        tableHtml += `<td class="border border-slate-800 p-1.5 bg-[#92b558]"></td>`;
+                    } else if (state.weekFilter === 'even' && item.oddWeekOnly) {
+                        tableHtml += `
+                            <td class="border border-slate-800 p-1.5 bg-emerald-50 text-center align-middle">
+                                <div class="text-[10px] font-bold text-emerald-700">ទំនេរ (សប្តាហ៍គូ)</div>
+                            </td>
+                        `;
+                    } else {
+                        const subj = SUBJECT_THEMES[item.subjectKey];
+                        const cellBg = item.isBlueCell ? 'bg-[#dceef8]' : 'bg-white';
+                        tableHtml += `
+                            <td class="border border-slate-800 p-1.5 ${cellBg} align-top">
+                                <div class="flex flex-col justify-between min-h-[50px] text-[11px] leading-tight text-black">
+                                    <div class="text-right font-bold">${item.typeKh}</div>
+                                    <div class="text-center font-extrabold my-0.5 ${item.isBlueCell ? 'text-blue-800' : 'text-black'}">${subj.kh} (${subj.code})</div>
+                                    <div class="text-center ${item.teacherRed ? 'text-red-600 font-semibold' : 'text-slate-800'}">${item.teacherKh}</div>
+                                    <div class="text-right font-bold ${item.roomRed ? 'text-red-600' : 'text-black'}">${item.room}</div>
+                                </div>
+                            </td>
+                        `;
+                    }
+                });
+                tableHtml += `</tr>`;
+            });
+
+            tableHtml += `</tbody></table></div>`;
+            return tableHtml;
+        }
+
+        function openPrintModal() {
+            renderPrintableSheet();
+            const modal = document.getElementById('printPreviewModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closePrintModal() {
+            const modal = document.getElementById('printPreviewModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function executeDirectPrint() {
+            renderPrintableSheet();
+            const tableContent = buildOfficialTableHTML(true);
+            const standaloneHTML = `<!DOCTYPE html>
+<html lang="km">
+<head>
+<meta charset="UTF-8">
+<title>កាលវិភាគសិក្សា I1.1718-TC</title>
+<script src="https://cdn.tailwindcss.com"><\/script>
+<link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+    @page { size: A4 landscape; margin: 7mm; }
+    body { font-family: 'Kantumruy Pro', sans-serif; background: #fff; color: #000; margin: 0; padding: 10px; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { border: 1px solid #000 !important; }
+</style>
+</head>
+<body>
+${tableContent}
+<script>
+    window.onload = function() {
+        setTimeout(function() {
+            window.focus();
+            window.print();
+        }, 350);
+    };
+<\/script>
+</body>
+</html>`;
+
+            // Try opening a standalone print window first (works great when inside an iframe)
+            let printWin = null;
+            try {
+                printWin = window.open('', '_blank');
+            } catch (e) {}
+
+            if (printWin && printWin.document) {
+                printWin.document.open();
+                printWin.document.write(standaloneHTML);
+                printWin.document.close();
+            } else {
+                // Fallback to direct window.print()
+                window.print();
+            }
+        }
+
+        // High-Resolution Canvas Timetable Renderer (Downloads crisp A4 PNG on any Phone or PC)
+        function downloadTimetableAsPNG() {
+            showToast('កំពុងបង្កើតរូបភាពតារាងកាលវិភាគច្បាស់ខ្ពស់...', 'info');
+            const canvas = document.createElement('canvas');
+            const W = 2400;
+            const H = 1650;
+            canvas.width = W;
+            canvas.height = H;
+            const ctx = canvas.getContext('2d');
+
+            // White A4 background
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, W, H);
+
+            // Header Text
+            ctx.fillStyle = '#0f172a';
+            ctx.font = 'bold 38px "Kantumruy Pro", sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('កាលវិភាគសិក្សា ឆ្នាំសិក្សា ២០២៦-២០២៧ (ឆមាសទី ១)', W / 2, 65);
+
+            ctx.font = 'bold 30px "Kantumruy Pro", sans-serif';
+            ctx.fillStyle = '#1d4ed8';
+            ctx.fillText('ក្រុម៖ I1.1718-TC | ចាប់ពីថ្ងៃទី ១៩ តុលា ២០២៦ (សប្តាហ៍ទី ១ ដល់ ១៦)', W / 2, 112);
+
+            // Grid coordinates
+            const marginX = 50;
+            const startY = 145;
+            const timeColW = 220;
+            const dayColW = (W - marginX * 2 - timeColW) / 6;
+            const headerH = 65;
+            const rowH = 165;
+            const breakGap = 24;
+
+            // Draw Header Row
+            ctx.fillStyle = '#f1f5f9';
+            ctx.fillRect(marginX, startY, W - marginX * 2, headerH);
+            ctx.strokeStyle = '#1e293b';
+            ctx.lineWidth = 2;
+            ctx.strokeRect(marginX, startY, timeColW, headerH);
+
+            ctx.fillStyle = '#0f172a';
+            ctx.font = 'bold 24px "Kantumruy Pro", sans-serif';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('ម៉ោងសិក្សា', marginX + timeColW / 2, startY + headerH / 2);
+
+            DAYS.forEach((d, idx) => {
+                const x = marginX + timeColW + idx * dayColW;
+                ctx.strokeRect(x, startY, dayColW, headerH);
+                ctx.fillText(d.kh, x + dayColW / 2, startY + headerH / 2);
+            });
+
+            // Draw 8 Time Slots
+            TIME_SLOTS.forEach((slotObj, sIdx) => {
+                const extraBreak = sIdx >= 4 ? breakGap : 0;
+                const y = startY + headerH + sIdx * rowH + extraBreak;
+
+                if (sIdx === 4) {
+                    ctx.fillStyle = '#e2e8f0';
+                    ctx.fillRect(marginX, y - breakGap, W - marginX * 2, breakGap);
+                    ctx.strokeRect(marginX, y - breakGap, W - marginX * 2, breakGap);
+                }
+
+                // Time Cell
+                ctx.fillStyle = '#ffffff';
+                ctx.fillRect(marginX, y, timeColW, rowH);
+                ctx.strokeRect(marginX, y, timeColW, rowH);
+                ctx.fillStyle = '#0f172a';
+                ctx.font = 'bold 23px "Kantumruy Pro", sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText(slotObj.label, marginX + timeColW / 2, y + rowH / 2);
+
+                // Day Cells
+                DAYS.forEach((d, dIdx) => {
+                    const x = marginX + timeColW + dIdx * dayColW;
+                    const item = SCHEDULE_ITEMS.find(it => it.day === d.id && it.slot === slotObj.id);
+
+                    if (item && item.isGreenBlock) {
+                        ctx.fillStyle = '#92b558';
+                        ctx.fillRect(x, y, dayColW, rowH);
+                    } else if (item && item.isBlueCell) {
+                        ctx.fillStyle = '#dceef8';
+                        ctx.fillRect(x, y, dayColW, rowH);
+                    } else {
+                        ctx.fillStyle = '#ffffff';
+                        ctx.fillRect(x, y, dayColW, rowH);
+                    }
+                    ctx.strokeRect(x, y, dayColW, rowH);
+
+                    if (item && !item.isGreenBlock) {
+                        if (state.weekFilter === 'even' && item.oddWeekOnly) {
+                            ctx.fillStyle = '#059669';
+                            ctx.font = 'bold 20px "Kantumruy Pro", sans-serif';
+                            ctx.textAlign = 'center';
+                            ctx.fillText('ទំនេរ (សប្តាហ៍គូ)', x + dayColW / 2, y + rowH / 2);
+                        } else {
+                            const subj = SUBJECT_THEMES[item.subjectKey];
+                            // Top right type
+                            ctx.fillStyle = '#1e293b';
+                            ctx.font = 'bold 18px "Kantumruy Pro", sans-serif';
+                            ctx.textAlign = 'right';
+                            ctx.fillText(item.typeKh, x + dayColW - 12, y + 26);
+
+                            // Center subject
+                            ctx.fillStyle = item.isBlueCell ? '#1d4ed8' : '#0f172a';
+                            ctx.font = 'bold 21px "Kantumruy Pro", sans-serif';
+                            ctx.textAlign = 'center';
+                            ctx.fillText(subj.kh, x + dayColW / 2, y + 68);
+
+                            // Teacher
+                            ctx.fillStyle = item.teacherRed ? '#dc2626' : '#334155';
+                            ctx.font = '600 18px "Kantumruy Pro", sans-serif';
+                            ctx.fillText(item.teacherKh, x + dayColW / 2, y + 104);
+
+                            // Bottom right room
+                            ctx.fillStyle = item.roomRed ? '#dc2626' : '#0f172a';
+                            ctx.font = 'bold 20px "Kantumruy Pro", sans-serif';
+                            ctx.textAlign = 'right';
+                            ctx.fillText(item.room, x + dayColW - 12, y + rowH - 22);
+                        }
+                    }
+                });
+            });
+
+            const dataUrl = canvas.toDataURL('image/png');
+            const link = document.createElement('a');
+            link.download = 'កាលវិភាគ-I1.1718-TC.png';
+            link.href = dataUrl;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            showToast('បានទាញយករូបភាពតារាងកាលវិភាគរួចរាល់!', 'even');
+        }
+
+        // ==========================================
+        // 5. LEGEND & MODAL
+        // ==========================================
+        function renderLegend() {
+            const container = document.getElementById('legendContainer');
+            if (!container) return;
+
+            const keys = Object.keys(SUBJECT_THEMES);
+            container.innerHTML = keys.map(k => {
+                const s = SUBJECT_THEMES[k];
+                const relatedItems = SCHEDULE_ITEMS.filter(i => i.subjectKey === k);
+                const rooms = [...new Set(relatedItems.map(i => i.room))].join(', ');
+                const teachers = [...new Set(relatedItems.map(i => i.teacherKh))].join(' / ');
+
+                return `
+                    <div onclick="filterBySubjectCode('${s.code}')" class="cursor-pointer rounded-xl p-2.5 border ${s.border} ${s.bgLight} hover:shadow-sm transition flex items-center justify-between gap-2">
+                        <div class="min-w-0">
+                            <div class="flex items-center gap-1.5">
+                                <span class="px-1.5 py-0.5 rounded text-[10px] font-extrabold ${s.badge}">${s.code}</span>
+                                <span class="font-bold text-xs ${s.text} truncate">${s.kh}</span>
+                            </div>
+                            <div class="text-[11px] text-slate-600 dark:text-slate-300 truncate mt-0.5">${teachers}</div>
+                        </div>
+                        <span class="px-2 py-0.5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-[10px] font-bold text-rose-600 dark:text-rose-400 shrink-0">
+                            ${rooms}
+                        </span>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function openModal(itemId, startTime, endTime) {
+            const item = SCHEDULE_ITEMS.find(x => x.id === itemId);
+            if (!item || item.isGreenBlock) return;
+
+            const subj = SUBJECT_THEMES[item.subjectKey];
+            const dayObj = DAYS.find(d => d.id === item.day);
+
+            document.getElementById('modalBadges').innerHTML = `
+                <span class="px-2 py-0.5 rounded text-xs font-bold bg-blue-600 text-white">${item.typeKh}</span>
+                <span class="px-2 py-0.5 rounded text-xs font-bold ${subj.badge}">${subj.code}</span>
+            `;
+            document.getElementById('modalTitleKh').textContent = subj.kh;
+            document.getElementById('modalTitleEn').textContent = subj.en;
+            document.getElementById('modalTime').textContent = `${dayObj.kh} | ${startTime} - ${endTime}`;
+            document.getElementById('modalTeacher').textContent = item.teacherKh;
+            document.getElementById('modalRoom').textContent = item.room;
+
+            const weekEl = document.getElementById('modalWeekType');
+            if (item.oddWeekOnly) {
+                weekEl.textContent = 'សិក្សាតែសប្តាហ៍សេស (ទី ១, ៣, ៥..១៥)';
+                weekEl.className = 'font-bold text-amber-600 dark:text-amber-400 text-right';
+            } else {
+                weekEl.textContent = 'រៀងរាល់សប្តាហ៍ (សប្តាហ៍ទី ១ ដល់ ១៦)';
+                weekEl.className = 'font-bold text-emerald-600 dark:text-emerald-400 text-right';
+            }
+
+            const modal = document.getElementById('classModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('classModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        document.getElementById('classModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+        document.getElementById('installGuideModal').addEventListener('click', function(e) {
+            if (e.target === this) closeInstallModal();
+        });
+        document.getElementById('printPreviewModal').addEventListener('click', function(e) {
+            if (e.target === this) closePrintModal();
+        });
+    </script>
+</body>
+</html>
